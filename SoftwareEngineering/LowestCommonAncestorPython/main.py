@@ -10,7 +10,7 @@ class Node:
 # Stores the path in a list path[], returns true if path  
 # exists otherwise false 
 def findPath(root, path, k):
-    # Baes Case
+    # Base Case
     if root is None:
         return False
 
@@ -33,7 +33,6 @@ def findPath(root, path, k):
     path.pop()
     return False
 
-
 # Returns LCA if node n1 , n2 are present in the given
 # binary tre otherwise return -1 
 def findLCA(root, n1, n2):
@@ -54,8 +53,6 @@ def findLCA(root, n1, n2):
         i += 1
     return path1[i - 1]
 
-#Mild testing done to at least make the tree and find the LCA of the nodes
-
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
@@ -64,7 +61,7 @@ root.left.right = Node(5)
 root.right.left = Node(6)
 root.right.right = Node(7)
 
-print("LCA(4, 5) = %d" % (findLCA(root, 4, 5, )))
+print("LCA(4, 5) = %d" % (findLCA(root, 4, 5)))
 print("LCA(4, 6) = %d" % (findLCA(root, 4, 6)))
 print("LCA(3, 4) = %d" % (findLCA(root, 3, 4)))
 print("LCA(2, 4) = %d" % (findLCA(root, 2, 4)))
