@@ -1,3 +1,6 @@
+import networkx as nx
+from matplotlib import pyplot as plt
+
 class Node:
     # Constructor to create a new binary node 
     def __init__(self, key):
@@ -65,3 +68,18 @@ print("LCA(4, 5) = %d" % (findLCA(root, 4, 5)))
 print("LCA(4, 6) = %d" % (findLCA(root, 4, 6)))
 print("LCA(3, 4) = %d" % (findLCA(root, 3, 4)))
 print("LCA(2, 4) = %d" % (findLCA(root, 2, 4)))
+
+graph = nx.DiGraph()
+graph.add_edges_from([("root", "2"), ("root", "3"), ("2", "4"), ("2", "5"), ("3", "6"), ("3", "7")])
+graph.nodes() # => NodeView(('root', '2', '3', '4', '5', '6', '7'))
+print("Is the graph directed?:")
+if (nx.is_directed(graph)) :
+    print("Yes")
+else :
+    print("No")
+print(nx.shortest_path(graph, 'root', '7')) # => ['root', 'a', 'e']
+
+plt.tight_layout()
+nx.draw_networkx(graph, arrows=True)
+plt.savefig("graph.png", format="PNG")
+plt.clf()
